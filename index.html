@@ -1,241 +1,232 @@
-Full website 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SUCCESS FOUNDATION CLASSES</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Fredoka+One&display=swap" rel="stylesheet">
+<title>SUCCESS FOUNDATION CLASSES Admission Form</title>
 <style>
-    /* General Styles */
-    body {
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(to right, #f0f8ff, #ffe6f2);
-        overflow-x: hidden;
-        color: #222;
-    }
+body { font-family: 'Arial', sans-serif; background: linear-gradient(to bottom, #f0f4ff, #f9f9f9); margin:0; padding:0; }
+.header { background-color:#007BFF; color:white; text-align:center; padding:25px; border-bottom:5px solid #0056b3; }
+.header h1 { margin:5px 0; font-size:32px; }
+.header h2 { margin:5px 0; font-weight:normal; font-size:18px; }
+.container { max-width:650px; margin:30px auto; background-color:#fff; padding:35px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.15); position:relative; }
+label { display:block; margin-bottom:6px; margin-top:15px; font-weight:bold; color:#555; font-size:16px; }
+input, select, textarea { width:100%; padding:12px; border:1px solid #ccc; border-radius:6px; font-size:16px; box-sizing:border-box; }
+input:focus, select:focus, textarea:focus { border-color:#007BFF; outline:none; box-shadow:0 0 5px rgba(0,123,255,0.5); }
+.radio-group { display:flex; gap:15px; margin-top:8px; }
+.radio-group label { font-weight:normal; }
+.submit-btn { background-color:#28a745; color:white; padding:15px; border:none; border-radius:6px; font-size:18px; cursor:pointer; margin-top:25px; width:100%; transition:0.3s; }
+.submit-btn:hover { background-color:#218838; transform:scale(1.03); }
+.success-message { display:none; text-align:center; background:#d4edda; color:#155724; padding:20px; border-radius:8px; margin-top:20px; }
+.download-btn { display:none; margin:15px auto; padding:10px 20px; background:#007BFF; color:white; border:none; border-radius:6px; cursor:pointer; text-decoration:none; }
+.download-btn:hover { background:#0056b3; }
 
-    /* Floating Stickers */
-    .sticker {
-        position: absolute;
-        width: 50px;
-        animation: float 8s infinite ease-in-out;
-        opacity: 0.8;
-    }
-    @keyframes float {
-        0% { transform: translateY(0px) rotate(0deg);}
-        50% { transform: translateY(-20px) rotate(10deg);}
-        100% { transform: translateY(0px) rotate(0);}
-    }
-
-    /* Header */
-    header {
-        background: url('https://images.unsplash.com/photo-1596496050106-2d0aa64ab0d8?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-        text-align: center;
-        padding: 100px 20px;
-        color: #111;
-        text-shadow: 1px 1px 4px rgba(255,255,255,0.7);
-        position: relative;
-    }
-    header h1 {
-        font-family: 'Fredoka One', cursive;
-        font-size: 70px;
-        margin: 0;
-        color: #222;
-        animation: fadeInDown 1.8s ease-out;
-    }
-    header p {
-        font-size: 26px;
-        margin: 10px 0 0;
-        font-style: italic;
-        font-weight: 500;
-        color: #333;
-        animation: fadeInUp 2s ease-out;
-    }
-
-    @keyframes fadeInDown {
-        0% {opacity:0; transform: translateY(-50px);}
-        100% {opacity:1; transform: translateY(0);}
-    }
-    @keyframes fadeInUp {
-        0% {opacity:0; transform: translateY(50px);}
-        100% {opacity:1; transform: translateY(0);}
-    }
-
-    /* About Section */
-    .about {
-        padding: 60px 20px;
-        text-align: center;
-        background-color: #fff;
-        animation: fadeIn 2s ease-out;
-    }
-    .about h2 {
-        font-family: 'Fredoka One', cursive;
-        font-size: 42px;
-        color: #ff3385;
-    }
-    .about p {
-        font-size: 18px;
-        max-width: 800px;
-        margin: 20px auto 0;
-        line-height: 1.6;
-        color: #222;
-    }
-
-    @keyframes fadeIn {
-        from {opacity:0;}
-        to {opacity:1;}
-    }
-
-    /* Apply Now Button */
-    .apply-btn {
-        display: inline-block;
-        margin: 30px auto;
-        padding: 15px 30px;
-        background: linear-gradient(45deg, #ff7eb3, #ff758c);
-        color: white;
-        font-size: 18px;
-        font-weight: 600;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-    }
-    .apply-btn:hover {
-        background: linear-gradient(45deg, #ff5aa1, #ff5a86);
-        transform: scale(1.05);
-    }
-
-    /* Teachers Section */
-    .teachers {
-        background-color: #ffe6f2;
-        padding: 60px 20px;
-        text-align: center;
-    }
-    .teachers h2 {
-        font-family: 'Fredoka One', cursive;
-        font-size: 42px;
-        color: #ff3385;
-        margin-bottom: 40px;
-    }
-    .teacher-cards {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 30px;
-    }
-    .teacher-card {
-        background: linear-gradient(135deg, #ffccf9, #ff99e6);
-        border-radius: 20px;
-        width: 250px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        transition: transform 0.5s, box-shadow 0.5s;
-        cursor: pointer;
-    }
-    .teacher-card:hover {
-        transform: translateY(-12px) scale(1.03);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    }
-    .teacher-card img {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #fff;
-        transition: transform 0.5s;
-    }
-    .teacher-card:hover img {
-        transform: scale(1.1) rotate(3deg);
-    }
-    .teacher-card h3 {
-        margin: 15px 0 5px;
-        color: #b30059;
-        font-weight: 700;
-    }
-    .teacher-card p {
-        margin: 0;
-        font-size: 16px;
-        font-weight: 500;
-        color: #222;
-    }
-
-    /* Footer */
-    footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #ff3385;
-        color: #fff;
-        font-weight: 500;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .teacher-cards {
-            flex-direction: column;
-            align-items: center;
-        }
-        header h1 { font-size: 50px; }
-        header p { font-size: 22px; }
-        .about h2, .teachers h2 { font-size: 36px; }
-    }
+/* PDF Resume Hidden */
+#resume { display:none; width:800px; background:white; padding:30px; font-family: Arial, sans-serif; color:#333; border:2px solid #007BFF; position:relative; }
+#resume h1 { text-align:center; color:#007BFF; margin-bottom:15px; }
+.resume-flex { display:flex; gap:20px; align-items:flex-start; margin-top:20px; }
+.resume-line { width:2px; background:#007BFF; margin:0 15px; }
+.resume-details { flex-grow:1; }
+.resume-section { margin-bottom:15px; }
+.resume-section h3 { margin-bottom:5px; color:#0056b3; }
+.resume-section p { margin:3px 0; }
+#resume-photo { width:100%; border-radius:0; object-fit:cover; }
 </style>
 </head>
 <body>
 
-<!-- Floating Stickers -->
-<img src="https://cdn-icons-png.flaticon.com/512/2909/2909865.png" class="sticker" style="top:50px; left:30px; width:40px;">
-<img src="https://cdn-icons-png.flaticon.com/512/2909/2909875.png" class="sticker" style="top:200px; left:90%; width:50px;">
-<img src="https://cdn-icons-png.flaticon.com/512/2909/2909868.png" class="sticker" style="top:400px; left:10%; width:45px;">
-<img src="https://cdn-icons-png.flaticon.com/512/2909/2909870.png" class="sticker" style="top:600px; left:80%; width:50px;">
-
-<!-- Header Section -->
-<header>
-    <h1>SUCCESS FOUNDATION CLASSES</h1>
-    <p>"Shaping Minds, Building Futures"</p>
-</header>
-
-<!-- About Section -->
-<section class="about">
-    <h2>About Us</h2>
-    <p>हमारी क्लासेस में 1 से 12 तक की coaching उपलब्ध है और साथ ही competitive exams और job preparation की भी तैयारी कराई जाती है। हमारा लक्ष्य है कि हर छात्र अपने सपनों को पूरा कर सके।</p>
-</section>
-
-<!-- Apply Now Button -->
-<div style="text-align:center;">
-    <a href="form.html" target="_blank" class="apply-btn">Apply Now 📝</a>
+<div class="header">
+<h1>SUCCESS FOUNDATION CLASSES</h1>
+<h2>DEVA ROAD MATI (Bazar), Barabanki ✏️</h2>
 </div>
 
-<!-- Teachers Section -->
-<section class="teachers">
-    <h2>Meet Our Teachers</h2>
-    <div class="teacher-cards">
-        <div class="teacher-card">
-            <img src="https://via.placeholder.com/120" alt="Teacher 1">
-            <h3>Teacher 1</h3>
-            <p>Mathematics Expert</p>
-        </div>
-        <div class="teacher-card">
-            <img src="https://via.placeholder.com/120" alt="Teacher 2">
-            <h3>Teacher 2</h3>
-            <p>Science Expert</p>
-        </div>
-        <div class="teacher-card">
-            <img src="https://via.placeholder.com/120" alt="Teacher 3">
-            <h3>Teacher 3</h3>
-            <p>English & Exams Coach</p>
-        </div>
-    </div>
-</section>
+<div class="container">
+<h3>Students Admission Form ✍️</h3>
 
-<!-- Footer -->
-<footer>
-    &copy; 2025 SUCCESS FOUNDATION CLASSES | Address: Mati Bazar, Barabanki Road
-</footer>
+<form id="admission-form" enctype="multipart/form-data">
+<input type="hidden" name="form-name" value="contact" />
+
+<label for="student-name">👦 Student's Name</label>
+<input type="text" id="student-name" name="Students Name" required />
+
+<label for="father-name">👨 Father's Name</label>
+<input type="text" id="father-name" name="Father's Name" required />
+
+<label for="mother-name">👩 Mother's Name</label>
+<input type="text" id="mother-name" name="Mothers Name" required />
+
+<label for="date">📅 Date</label>
+<input type="date" id="date" name="Date" required />
+
+<label for="day">🗓️ Day</label>
+<select id="day" name="Day" required>
+<option value="">Select Day</option>
+<option value="Monday">Monday</option>
+<option value="Tuesday">Tuesday</option>
+<option value="Wednesday">Wednesday</option>
+<option value="Thursday">Thursday</option>
+<option value="Friday">Friday</option>
+<option value="Saturday">Saturday</option>
+<option value="Sunday">Sunday</option>
+</select>
+
+<label for="class">🏷️ Class</label>
+<select id="class" name="Class" required>
+<option value="">Select Class</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
+
+<label>👫 Gender</label>
+<div class="radio-group">
+<label><input type="radio" name="gender" value="Male" checked> Male</label>
+<label><input type="radio" name="gender" value="Female"> Female</label>
+<label><input type="radio" name="gender" value="Other"> Other</label>
+</div>
+
+<label for="whatsapp-no">📱 Whatsapp Number</label>
+<input type="number" id="whatsapp-no" name="whatsapp no" value="+91" />
+
+<label for="phone">📞 Phone Number</label>
+<input type="number" id="phone" name="phone" required />
+
+<label for="address">🏠 Current Address</label>
+<textarea id="address" name="address" rows="4" required></textarea>
+
+<label for="email">✉️ Email</label>
+<input type="email" id="email" name="email" required />
+
+<label for="photo">🖼️ Upload Photo (optional)</label>
+<input type="file" id="photo" name="photo" accept="image/*" />
+
+<label for="marks10">📄 10th Marksheet (optional)</label>
+<input type="file" id="marks10" name="marks10" accept="image/*,application/pdf" />
+
+<label for="marks12">📄 12th Marksheet (optional)</label>
+<input type="file" id="marks12" name="marks12" accept="image/*,application/pdf" />
+
+<label for="additional">📎 Additional Documents (optional)</label>
+<input type="file" id="additional" name="additional" accept="image/*,application/pdf" />
+
+<button type="submit" class="submit-btn">Submit ✅</button>
+</form>
+
+<div id="success-msg" class="success-message">
+✅ Form submitted successfully!
+<button id="download-pdf" class="download-btn">Download Resume PDF</button>
+</div>
+
+</div>
+
+<!-- Hidden Resume for PDF -->
+<div id="resume">
+<h1>SUCCESS FOUNDATION CLASSES</h1>
+<div class="resume-flex">
+<div style="flex-basis:30%;"><img id="resume-photo" src="" alt="Student Photo"/></div>
+<div class="resume-line"></div>
+<div class="resume-details">
+<div class="resume-section"><h3>Student Details 📚</h3>
+<p id="res-name"></p>
+<p id="res-father"></p>
+<p id="res-mother"></p>
+<p id="res-class"></p>
+<p id="res-gender"></p>
+<p id="res-date"></p>
+<p id="res-day"></p>
+<p id="res-whatsapp"></p>
+<p id="res-phone"></p>
+<p id="res-address"></p>
+<p id="res-email"></p>
+</div>
+<div class="resume-section"><h3>Uploaded Documents 🎓</h3>
+<p id="res-marks10"></p>
+<p id="res-marks12"></p>
+<p id="res-additional"></p>
+</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const form = document.getElementById('admission-form');
+const successMsg = document.getElementById('success-msg');
+const downloadBtn = document.getElementById('download-pdf');
+
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    document.getElementById('res-name').innerText = '👦 Name: ' + form['Students Name'].value;
+    document.getElementById('res-father').innerText = "👨 Father's Name: " + form["Father's Name"].value;
+    document.getElementById('res-mother').innerText = "👩 Mother's Name: " + form["Mothers Name"].value;
+    document.getElementById('res-class').innerText = '🏷️ Class: ' + form['Class'].value;
+    document.getElementById('res-gender').innerText = '👫 Gender: ' + form['gender'].value;
+
+    // Date DD-MM-YYYY
+    let rawDate = form['Date'].value;
+    if(rawDate){
+        let parts = rawDate.split('-'); // YYYY-MM-DD
+        let formattedDate = parts[2] + '-' + parts[1] + '-' + parts[0];
+        document.getElementById('res-date').innerText = '📅 Date: ' + formattedDate;
+    }
+
+    document.getElementById('res-day').innerText = '🗓️ Day: ' + form['Day'].value;
+    document.getElementById('res-whatsapp').innerText = '📱 Whatsapp: ' + form['whatsapp no'].value;
+    document.getElementById('res-phone').innerText = '📞 Phone: ' + form['phone'].value;
+    document.getElementById('res-address').innerText = '🏠 Address: ' + form['address'].value;
+    document.getElementById('res-email').innerText = '✉️ Email: ' + form['email'].value;
+
+    const photoFile = form['photo'].files[0];
+    if(photoFile){
+        const reader = new FileReader();
+        reader.onload = function(e){
+            document.getElementById('resume-photo').src = e.target.result;
+            successMsg.style.display = 'block';
+            downloadBtn.style.display = 'inline-block';
+        }
+        reader.readAsDataURL(photoFile);
+    } else {
+        document.getElementById('resume-photo').src = '';
+        successMsg.style.display = 'block';
+        downloadBtn.style.display = 'inline-block';
+    }
+
+    document.getElementById('res-marks10').innerText = form['marks10'].files[0] ? '📄 10th Marksheet: ' + form['marks10'].files[0].name : '';
+    document.getElementById('res-marks12').innerText = form['marks12'].files[0] ? '📄 12th Marksheet: ' + form['marks12'].files[0].name : '';
+    document.getElementById('res-additional').innerText = form['additional'].files[0] ? '📎 Additional Docs: ' + form['additional'].files[0].name : '';
+});
+
+// PDF Download with 70% photo
+downloadBtn.addEventListener('click', function(){
+    const resume = document.getElementById('resume');
+    resume.style.display = 'block';
+    const resumePhoto = document.getElementById('resume-photo');
+    resumePhoto.style.width = '70%';
+
+    html2canvas(resume).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('p','pt','a4');
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save('Admission_Form.pdf');
+        resume.style.display = 'none';
+        resumePhoto.style.width = '100%';
+    });
+});
+</script>
 
 </body>
 </html>
