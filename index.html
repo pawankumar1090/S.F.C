@@ -2,256 +2,291 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <title>SUCCESS FOUNDATION CLASSES</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SUCCESS FOUNDATION CLASSES</title>
+
   <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@400;600&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@400;600&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
   <!-- jsPDF Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
   <style>
-      :root {
-            --grad1: #8e2de2;
+    :root {
+      --grad1: #8e2de2;
       --grad2: #4a00e0;
       --accent: #ffbf2e;
       --dark: #081029;
       --muted: #9aa3ad;
     }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        *     body { font-family: "Inter", sans-serif; background: #fff; color: var(--dark); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family: "Inter", sans-serif; background: #fff; color: var(--dark); }
+
     /* NAVBAR */
-        header {
-              background: linear-gradient(90deg,var(--grad1),var(--grad2));
-                    border-bottom-left-radius:60px;
-                          border-bottom-right-radius:60px;
-                                padding: 14px 24px;
-                                    }
-                                        .nav-container {
-                                              max-width:1200px;
-                                                    margin:auto;
-                                                          display:flex;
-                                                                align-items:center;
-                                                                      justify-content:space-between;
-                                                                          }
-                                                                              .logo { font-family: "Montserrat", sans-serif; font-weight:800; color:white; font-size:20px; }
-                                                                                  nav ul { list-style:none; display:flex; gap:18px; }
-                                                                                      nav a { color:white; text-decoration:none; font-weight:600; }
-                                                                                          .menu-toggle { display:none; font-size:28px; color:white; cursor:pointer; }
-                                                                                              @media(max-width:768px){
-                                                                                                    nav { display:none; position:absolute; top:70px; right:20px; background:white; padding:20px; border-radius:12px; }
-                                                                                                          nav ul { flex-direction:column; gap:12px; }
-                                                                                                                nav a { color: var(--dark); }
-                                                                                                                      .menu-toggle{ display:block; }
-                                                                                                                            .show { display:block; }
-                                                                                                                                }
+    header {
+      background: linear-gradient(90deg,var(--grad1),var(--grad2));
+      border-bottom-left-radius:60px;
+      border-bottom-right-radius:60px;
+      padding: 14px 24px;
+    }
+    .nav-container {
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .logo { font-family: "Montserrat", sans-serif; font-weight:800; color:white; font-size:20px; }
+    nav ul { list-style:none; display:flex; gap:18px; }
+    nav a { color:white; text-decoration:none; font-weight:600; }
+    .menu-toggle { display:none; font-size:28px; color:white; cursor:pointer; }
+    @media(max-width:768px){
+      nav { display:none; position:absolute; top:70px; right:20px; background:white; padding:20px; border-radius:12px; }
+      nav ul { flex-direction:column; gap:12px; }
+      nav a { color: var(--dark); }
+      .menu-toggle{ display:block; }
+      .show { display:block; }
+    }
+
     /* HERO */
-        .hero {
-              max-width:1200px;
-                    margin:60px auto;
-                          display:grid;
-                                grid-template-columns: 1fr 1fr;
-                                      align-items:center;
-                                            gap:40px;
-                                                  padding:0 20px;
-                                                      }
-                                                          .hero h1 {
-                                                                font-family: "Montserrat", sans-serif;
-                                                                      font-size:72px;
-                                                                            line-height:1.1;
-                                                                                  margin-bottom:18px;
-                                                                                        font-weight:800;
-                                                                                            }
-                                                                                                .eyebrow { color: var(--accent); font-weight:700; font-size:20px; margin-bottom:8px; }
-                                                                                                    .hero p { color:var(--muted); margin-bottom:26px; font-size:16px; max-width:500px; }
-                                                                                                        .cta { display:inline-block; padding:12px 24px; border-radius:30px; background: linear-gradient(90deg,#7b4bff,#2e9cff); color:white; font-weight:700; text-decoration:none; }
-                                                                                                            @media(max-width:768px){ .hero { grid-template-columns: 1fr; text-align:center; } .hero h1 { font-size:48px; } }
+    .hero {
+      max-width:1200px;
+      margin:60px auto;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      align-items:center;
+      gap:40px;
+      padding:0 20px;
+    }
+    .hero h1 {
+      font-family: "Montserrat", sans-serif;
+      font-size:72px;
+      line-height:1.1;
+      margin-bottom:18px;
+      font-weight:800;
+    }
+    .eyebrow { color: var(--accent); font-weight:700; font-size:20px; margin-bottom:8px; }
+    .hero p { color:var(--muted); margin-bottom:26px; font-size:16px; max-width:500px; }
+    .cta { display:inline-block; padding:12px 24px; border-radius:30px; background: linear-gradient(90deg,#7b4bff,#2e9cff); color:white; font-weight:700; text-decoration:none; }
+    @media(max-width:768px){ .hero { grid-template-columns: 1fr; text-align:center; } .hero h1 { font-size:48px; } }
+
     footer { text-align:center; padding:30px; color:var(--muted); font-size:14px; }
+
     /* FORM */
-        .header-form { background: linear-gradient(45deg, #ff7eb3, #ff758c); color: white; text-align: center; padding: 25px; margin-top: 50px; border-bottom: 4px solid #e03a70; }
-            .header-form h1 { margin: 5px 0; font-size: 32px; }
-                .header-form h2 { margin: 5px 0; font-weight: normal; font-size: 18px; }
+    .header-form { background: linear-gradient(45deg, #ff7eb3, #ff758c); color: white; text-align: center; padding: 25px; margin-top: 50px; border-bottom: 4px solid #e03a70; }
+    .header-form h1 { margin: 5px 0; font-size: 32px; }
+    .header-form h2 { margin: 5px 0; font-weight: normal; font-size: 18px; }
+
     .container {
-          max-width: 900px;
-                margin: 30px auto;
-                      background: #fff;
-                            padding: 30px;
-                                  border-radius: 16px;
-                                        box-shadow: 0 10px 30px rgba(255, 126, 179, 0.2);
-                                              display: none;
-                                                  }
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(255, 126, 179, 0.2);
+      display: none;
+    }
+
+    /* FIX: form hamesha single column (phone jaisa) rahe */
     .form-grid {
-          display: grid;
-                grid-template-columns: 1fr;
-                      gap: 20px;
-                          }
-                              @media(min-width:768px){
-                                    .form-grid { grid-template-columns: 1fr 1fr; }
-                                          .form-grid-full { grid-column: span 2; }
-                                              }
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .form-grid-full { grid-column: span 1; }
+
     label { display:block; margin-bottom:6px; font-weight:600; color:#333; }
-        input, select, textarea {
-              width:100%; padding:12px; border:1px solid #ddd; border-radius:10px;
-                    font-size:15px; background:#fff8fb; transition:0.3s;
-                        }
-                            input:focus, select:focus, textarea:focus { border-color:#ff7eb3; outline:none; box-shadow:0 0 8px rgba(255,126,179,0.4); }
-                                .radio-group { display:flex; gap:20px; flex-wrap:wrap; }
-                                    .submit-btn {
-                                          background: linear-gradient(45deg, #ff7eb3, #ff758c); color:white;
-                                                padding:15px; border:none; border-radius:10px; font-size:16px; cursor:pointer;
-                                                      margin-top:10px; width:100%; transition: all 0.3s ease;
-                                                          }
-                                                              .submit-btn:hover { background:linear-gradient(45deg,#ff5aa1,#ff5a86); transform: scale(1.05); }
-                                                                  .download-btn {
-                                                                        display:none; margin:20px auto; padding:12px 20px;
-                                                                              background:linear-gradient(45deg,#ff7eb3,#ff758c); color:white; border:none;
-                                                                                    border-radius:8px; cursor:pointer; font-weight:600;
-                                                                                        }
-                                                                                          </style>
-                                                                                          </head>
-                                                                                          <body>
+    input, select, textarea {
+      width:100%; padding:12px; border:1px solid #ddd; border-radius:10px;
+      font-size:15px; background:#fff8fb; transition:0.3s;
+    }
+    input:focus, select:focus, textarea:focus { border-color:#ff7eb3; outline:none; box-shadow:0 0 8px rgba(255,126,179,0.4); }
+    .radio-group { display:flex; gap:20px; flex-wrap:wrap; }
+    .submit-btn {
+      background: linear-gradient(45deg, #ff7eb3, #ff758c); color:white;
+      padding:15px; border:none; border-radius:10px; font-size:16px; cursor:pointer;
+      margin-top:10px; width:100%; transition: all 0.3s ease;
+    }
+    .submit-btn:hover { background:linear-gradient(45deg,#ff5aa1,#ff5a86); transform: scale(1.05); }
+    .download-btn {
+      display:none; margin:20px auto; padding:12px 20px;
+      background:linear-gradient(45deg,#ff7eb3,#ff758c); color:white; border:none;
+      border-radius:8px; cursor:pointer; font-weight:600;
+    }
+  </style>
+</head>
+<body>
+
   <!-- NAVBAR -->
-    <header>
-        <div class="nav-container">
-              <div class="logo">SFC MATI BAZAR BARABANKI ROAD</div>
-                    <div class="menu-toggle" id="menuToggle">☰</div>
-                          <nav id="navMenu">
-                                  <ul>
-                                            <li><a href="#">Home</a></li>
-                                                      <li><a href="#about">About</a></li>
-                                                                <li><a href="#form" id="showFormBtn">Admission Form</a></li>
-                                                                        </ul>
-                                                                              </nav>
-                                                                                  </div>
-                                                                                    </header>
+  <header>
+    <div class="nav-container">
+      <div class="logo">SFC MATI BAZAR BARABANKI ROAD</div>
+      <div class="menu-toggle" id="menuToggle">☰</div>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#form" id="showFormBtn">Admission Form</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <!-- HERO -->
-    <section class="hero" id="about">
-        <div>
-              <h1>SUCCESS<br>FOUNDATION CLASSES</h1>
-                    <p>
-                            शिक्षा से मिलेगी नई उड़ान, बनो तुम ज्ञान के सिपाही महान।<br>
-                                    पढ़ो किताबें, खोलो द्वार, शिक्षा से होगा जीवन सुंदर।<br>
-                                            ज्ञान की ज्योति जलाओ घर-घर, अंधेरा भागेगा दूर बहुत दूर।<br>
-                                                    शिक्षा है जीवन का सार, इससे बढ़कर नहीं कोई उपहार।<br>
-                                                            हर बच्चे को दो शिक्षा का हक, तभी बनेगा देश महान और सशक्त।
-                                                                  </p>
-                                                                        <a href="#form" class="cta" id="heroFormBtn">APPLICATION FORM</a>
-                                                                            </div>
-                                                                                <div></div>
-                                                                                  </section>
+  <section class="hero" id="about">
+    <div>
+      <h1>SUCCESS<br>FOUNDATION CLASSES</h1>
+      <p>
+        शिक्षा से मिलेगी नई उड़ान, बनो तुम ज्ञान के सिपाही महान।<br>
+        पढ़ो किताबें, खोलो द्वार, शिक्षा से होगा जीवन सुंदर।<br>
+        ज्ञान की ज्योति जलाओ घर-घर, अंधेरा भागेगा दूर बहुत दूर।<br>
+        शिक्षा है जीवन का सार, इससे बढ़कर नहीं कोई उपहार।<br>
+        हर बच्चे को दो शिक्षा का हक, तभी बनेगा देश महान और सशक्त।
+      </p>
+      <a href="#form" class="cta" id="heroFormBtn">APPLICATION FORM</a>
+    </div>
+    <div></div>
+  </section>
+
   <!-- ADMISSION FORM HEADING -->
-    <div class="header-form" id="form">
-        <h1>हमारे यहां कक्षा 1 से 12 तक के सभी विषयों की उच्च गुणवत्ता वाली कोचिंग दी जाती है। 
-              इसके साथ ही हम प्रतियोगी परीक्षाओं जैसे SSC, Banking, Railway, CTET, UPTET तथा अन्य सरकारी नौकरी से जुड़ी परीक्षाओं की भी विशेष तैयारी कराते हैं। 
-                    हमारे अनुभवी शिक्षकों का उद्देश्य छात्रों को मजबूत नींव के साथ भविष्य की हर चुनौती के लिए तैयार करना है।</h1>
-                      </div>
+  <div class="header-form" id="form">
+    <h1>हमारे यहां कक्षा 1 से 12 तक के सभी विषयों की उच्च गुणवत्ता वाली कोचिंग दी जाती है। 
+      इसके साथ ही हम प्रतियोगी परीक्षाओं जैसे SSC, Banking, Railway, CTET, UPTET तथा अन्य सरकारी नौकरी से जुड़ी परीक्षाओं की भी विशेष तैयारी कराते हैं। 
+      हमारे अनुभवी शिक्षकों का उद्देश्य छात्रों को मजबूत नींव के साथ भविष्य की हर चुनौती के लिए तैयार करना है।</h1>
+  </div>
+
   <!-- FORM -->
-    <div class="container" id="formContainer">
-        <h3>Students Admission Form ✍️</h3>
-            <form id="admission-form" class="form-grid" name="admission" method="POST" data-netlify="true">
-                  <input type="hidden" name="form-name" value="admission">
+  <div class="container" id="formContainer">
+    <h3>Students Admission Form ✍️</h3>
+    <form id="admission-form" class="form-grid" name="admission" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="admission">
+
       <div>
-              <label>👦 Student's Name</label>
-                      <input type="text" id="student-name" name="student-name" required>
-                            </div>
-      <div>
-              <label>👨 Father's Name</label>
-                      <input type="text" id="father-name" name="father-name" required>
-                            </div>
-      <div>
-              <label>👩 Mother's Name</label>
-                      <input type="text" id="mother-name" name="mother-name" required>
-                            </div>
-      <div>
-              <label>📅 Date</label>
-                      <input type="date" id="date" name="date" required>
-                            </div>
-      <div>
-              <label>🗓️ Day</label>
-                      <select id="day" name="day" required>
-                                <option value="">Select Day</option>
-                                          <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
-                                                    <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
-                                                            </select>
-                                                                  </div>
-      <div>
-              <label>🏷️ Class</label>
-                      <select id="class" name="class" required>
-                                <option value="">Select Class</option>
-                                          <option>1</option><option>2</option><option>3</option>
-                                                    <option>4</option><option>5</option><option>6</option>
-                                                              <option>7</option><option>8</option><option>9</option>
-                                                                        <option>10</option><option>11</option><option>12</option>
-                                                                                </select>
-                                                                                      </div>
-      <div class="form-grid-full">
-              <label>👫 Gender</label>
-                      <div class="radio-group">
-                                <label><input type="radio" name="gender" value="Male" checked> Male</label>
-                                          <label><input type="radio" name="gender" value="Female"> Female</label>
-                                                    <label><input type="radio" name="gender" value="Other"> Other</label>
-                                                            </div>
-                                                                  </div>
-      <div>
-              <label>📱 Whatsapp Number</label>
-                      <input type="text" id="whatsapp-no" name="whatsapp-no" placeholder="+91">
-                            </div>
-      <div>
-              <label>📞 Phone Number</label>
-                      <input type="text" id="phone" name="phone" required>
-                            </div>
-      <div class="form-grid-full">
-              <label>🏠 Current Address</label>
-                      <textarea id="address" name="address" rows="3" required></textarea>
-                            </div>
-      <div>
-              <label>✉️ Email</label>
-                      <input type="email" id="email" name="email" required>
-                            </div>
-      <div>
-              <label>🖼️ Upload Photo</label>
-                      <input type="file" id="photo" name="photo" accept="image/*">
-                            </div>
-      <div class="form-grid-full">
-              <button type="submit" class="submit-btn">Submit</button>
-                    </div>
-                        </form>
-    <button id="downloadBtn" class="download-btn">📥 Download PDF</button>
+        <label>👦 Student's Name</label>
+        <input type="text" id="student-name" name="student-name" required>
       </div>
+
+      <div>
+        <label>👨 Father's Name</label>
+        <input type="text" id="father-name" name="father-name" required>
+      </div>
+
+      <div>
+        <label>👩 Mother's Name</label>
+        <input type="text" id="mother-name" name="mother-name" required>
+      </div>
+
+      <div>
+        <label>📅 Date</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+
+      <div>
+        <label>🗓️ Day</label>
+        <select id="day" name="day" required>
+          <option value="">Select Day</option>
+          <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+          <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+        </select>
+      </div>
+
+      <div>
+        <label>🏷️ Class</label>
+        <select id="class" name="class" required>
+          <option value="">Select Class</option>
+          <option>1</option><option>2</option><option>3</option>
+          <option>4</option><option>5</option><option>6</option>
+          <option>7</option><option>8</option><option>9</option>
+          <option>10</option><option>11</option><option>12</option>
+        </select>
+      </div>
+
+      <div class="form-grid-full">
+        <label>👫 Gender</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="Male" checked> Male</label>
+          <label><input type="radio" name="gender" value="Female"> Female</label>
+          <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+      </div>
+
+      <div>
+        <label>📱 Whatsapp Number</label>
+        <input type="text" id="whatsapp-no" name="whatsapp-no" placeholder="+91">
+      </div>
+
+      <div>
+        <label>📞 Phone Number</label>
+        <input type="text" id="phone" name="phone" required>
+      </div>
+
+      <div class="form-grid-full">
+        <label>🏠 Current Address</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+      </div>
+
+      <div>
+        <label>✉️ Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div>
+        <label>🖼️ Upload Photo</label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+      </div>
+
+      <div class="form-grid-full">
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+    </form>
+
+    <button id="downloadBtn" class="download-btn">📥 Download PDF</button>
+  </div>
+
   <footer>
-      © 2025 SUCCESS FOUNDATION CLASSES. All Rights Reserved.
-        </footer>
+    © 2025 SUCCESS FOUNDATION CLASSES. All Rights Reserved.
+  </footer>
+
   <script>
-      // menu toggle
-          document.getElementById("menuToggle").addEventListener("click", () => {
-                document.getElementById("navMenu").classList.toggle("show");
-                    });
+    // menu toggle
+    document.getElementById("menuToggle").addEventListener("click", () => {
+      document.getElementById("navMenu").classList.toggle("show");
+    });
+
     // show form when Application Form button clicked
-        document.getElementById("showFormBtn").addEventListener("click", () => {
-              document.getElementById("formContainer").style.display = "block";
-                  });
-                      document.getElementById("heroFormBtn").addEventListener("click", () => {
-                            document.getElementById("formContainer").style.display = "block";
-                                });
+    document.getElementById("showFormBtn").addEventListener("click", () => {
+      document.getElementById("formContainer").style.display = "block";
+    });
+    document.getElementById("heroFormBtn").addEventListener("click", () => {
+      document.getElementById("formContainer").style.display = "block";
+    });
+
     // PDF Download
-        document.getElementById("downloadBtn").addEventListener("click", function(){
-              const { jsPDF } = window.jspdf;
-                    const doc = new jsPDF();
+    document.getElementById("downloadBtn").addEventListener("click", function(){
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
       doc.setFontSize(18);
-            doc.text("SUCCESS FOUNDATION CLASSES", 20, 20);
-                  doc.setFontSize(12);
+      doc.text("SUCCESS FOUNDATION CLASSES", 20, 20);
+      doc.setFontSize(12);
+
       doc.text("Student's Name: " + document.getElementById("student-name").value, 20, 40);
-            doc.text("Father's Name: " + document.getElementById("father-name").value, 20, 50);
-                  doc.text("Mother's Name: " + document.getElementById("mother-name").value, 20, 60);
-                        doc.text("Date: " + document.getElementById("date").value, 20, 70);
-                              doc.text("Day: " + document.getElementById("day").value, 20, 80);
-                                    doc.text("Class: " + document.getElementById("class").value, 20, 90);
+      doc.text("Father's Name: " + document.getElementById("father-name").value, 20, 50);
+      doc.text("Mother's Name: " + document.getElementById("mother-name").value, 20, 60);
+      doc.text("Date: " + document.getElementById("date").value, 20, 70);
+      doc.text("Day: " + document.getElementById("day").value, 20, 80);
+      doc.text("Class: " + document.getElementById("class").value, 20, 90);
+
       const gender = document.querySelector('input[name="gender"]:checked').value;
-            doc.text("Gender: " + gender, 20, 100);
+      doc.text("Gender: " + gender, 20, 100);
+
       doc.text("Whatsapp No: " + document.getElementById("whatsapp-no").value, 20, 110);
-            doc.text("Phone: " + document.getElementById("phone").value, 20, 120);
-                  doc.text("Address: " + document.getElementById("address").value, 20, 130);
-                        doc.text("Email: " + document.getElementById("email").value, 20, 140);
+      doc.text("Phone: " + document.getElementById("phone").value, 20, 120);
+      doc.text("Address: " + document.getElementById("address").value, 20, 130);
+      doc.text("Email: " + document.getElementById("email").value, 20, 140);
+
       doc.save("Admission_Form.pdf");
-          });
-            </script>
-            </body>
-            </html>
+    });
+  </script>
+</body>
+</html>
