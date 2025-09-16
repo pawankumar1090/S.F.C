@@ -58,7 +58,7 @@ input:focus, select:focus, textarea:focus { border-color:#ff7eb3; outline:none; 
 .submit-btn:hover { background:linear-gradient(45deg,#ff5aa1,#ff5a86); transform: scale(1.05); }
 
 /* OWNER LOGIN MODAL */
-#ownerLoginModal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index:1000; }
+#ownerLoginModal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
 #ownerLoginModal .modal-content { background:#fff; padding:20px; border-radius:12px; max-width:300px; margin:auto; text-align:center; }
 
 /* OWNER DASHBOARD POPUP */
@@ -84,8 +84,8 @@ input:focus, select:focus, textarea:focus { border-color:#ff7eb3; outline:none; 
 .popup-content h2 { font-family: 'Montserrat', sans-serif; font-size: 28px; margin-bottom: 12px; }
 .dashboard-btn { display: block; margin: 10px auto; padding: 12px 20px; border-radius: 12px; background: linear-gradient(45deg,#7b4bff,#2e9cff); color: white; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.3s ease; }
 .dashboard-btn:hover { transform: scale(1.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-#closeDashboardPopup, #backToLogin { margin-top: 15px; background: #ff5aa1; color: white; font-weight: 600; padding: 10px 18px; border-radius: 12px; border: none; cursor: pointer; transition: all 0.3s ease; }
-#closeDashboardPopup:hover, #backToLogin:hover { transform: scale(1.05); background: #ff4178; }
+#closeDashboardPopup { margin-top: 15px; background: #ff5aa1; color: white; font-weight: 600; padding: 10px 18px; border-radius: 12px; border: none; cursor: pointer; transition: all 0.3s ease; }
+#closeDashboardPopup:hover { transform: scale(1.05); background: #ff4178; }
 </style>
 </head>
 <body>
@@ -113,7 +113,7 @@ input:focus, select:focus, textarea:focus { border-color:#ff7eb3; outline:none; 
        ज्ञान की ज्योति जलाओ घर-घर, अंधेरा भागेगा दूर बहुत दूर।<br>
        शिक्षा है जीवन का सार, इससे बढ़कर नहीं कोई उपहार।<br>
        हर बच्चे को दो शिक्षा का हक, तभी बनेगा देश महान और सशक्त।
-    </p>
+                                                                  </p>
     <a href="#form" class="cta" id="heroFormBtn">APPLICATION FORM</a>
   </div>
   <div>
@@ -125,11 +125,12 @@ input:focus, select:focus, textarea:focus { border-color:#ff7eb3; outline:none; 
   <h1>हमारे यहां कक्षा 1 से 12 तक के सभी विषयों की उच्च गुणवत्ता वाली कोचिंग दी जाती है। 
       इसके साथ ही हम प्रतियोगी परीक्षाओं जैसे SSC, Banking, Railway, CTET, UPTET तथा अन्य सरकारी नौकरी से जुड़ी परीक्षाओं की भी विशेष तैयारी कराते हैं। 
       हमारे अनुभवी शिक्षकों का उद्देश्य छात्रों को मजबूत नींव के साथ भविष्य की हर चुनौती के लिए तैयार करना है।</h1>
-</div>
+                      </div>
 
 <div class="container" id="formContainer">
 <h3>Students Admission Form ✍️</h3>
-<form id="admission-form" class="form-grid" name="admission">
+<form id="admission-form" class="form-grid" name="admission" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="admission">
 <div><label>👦 Student's Name</label><input type="text" id="student-name" name="student-name" required></div>
 <div><label>👨 Father's Name</label><input type="text" id="father-name" name="father-name" required></div>
 <div><label>👩 Mother's Name</label><input type="text" id="mother-name" name="mother-name" required></div>
@@ -159,10 +160,9 @@ input:focus, select:focus, textarea:focus { border-color:#ff7eb3; outline:none; 
 
 <!-- OWNER DASHBOARD POPUP -->
 <div id="ownerDashboardPopup">
-  <div class="popup-content" id="dashboardContent">
+  <div class="popup-content">
     <h2>Owner Dashboard</h2>
     <a href="#forms" class="dashboard-btn" id="formsBtn">📝 Forms</a>
-    <button id="backToLogin">Back</button>
     <button id="closeDashboardPopup">Close</button>
   </div>
 </div>
@@ -179,18 +179,6 @@ document.getElementById("menuToggle").addEventListener("click", () => {
 document.getElementById("showFormBtn").addEventListener("click", () => { document.getElementById("formContainer").style.display="block"; });
 document.getElementById("heroFormBtn").addEventListener("click", () => { document.getElementById("formContainer").style.display="block"; });
 
-// Form submission to localStorage
-document.getElementById("admission-form").addEventListener("submit", (e)=>{
-  e.preventDefault();
-  let forms = JSON.parse(localStorage.getItem("forms")) || [];
-  let data = {};
-  new FormData(e.target).forEach((v,k)=>data[k]=v);
-  forms.push({data, created_at: new Date().toLocaleString()});
-  localStorage.setItem("forms", JSON.stringify(forms));
-  alert("Form submitted successfully!");
-  e.target.reset();
-});
-
 // Owner Login
 const ownerLoginLink = document.getElementById("ownerLoginLink");
 const ownerModal = document.getElementById("ownerLoginModal");
@@ -198,7 +186,6 @@ const ownerLoginBtn = document.getElementById("ownerLoginBtn");
 const loginError = document.getElementById("loginError");
 const ownerDashboardPopup = document.getElementById("ownerDashboardPopup");
 const closeDashboardPopup = document.getElementById("closeDashboardPopup");
-const backToLogin = document.getElementById("backToLogin");
 
 ownerLoginLink.addEventListener("click", () => { ownerModal.style.display="flex"; });
 
@@ -219,37 +206,47 @@ closeDashboardPopup.addEventListener("click", () => {
   ownerDashboardPopup.style.display="none";
 });
 
-// Back to login from dashboard
-backToLogin.addEventListener("click", () => {
-  ownerDashboardPopup.style.display="none";
-  ownerModal.style.display="flex";
-});
-
-// Fetch forms from localStorage
-document.getElementById("formsBtn").addEventListener("click", (e)=>{
+// Fetch forms from Netlify Function
+document.getElementById("formsBtn").addEventListener("click", async (e) => {
   e.preventDefault();
-  let forms = JSON.parse(localStorage.getItem("forms")) || [];
-  let container = document.createElement("div");
-  container.style = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:2000;overflow:auto;";
-  container.innerHTML = `
-    <div style="background:white;padding:20px;border-radius:12px;max-width:600px;width:90%;max-height:80%;overflow:auto;">
-      <h2 style="margin-bottom:10px;">📋 Form Submissions</h2>
-      ${forms.map((item,i)=>`
-        <div style="border:1px solid #ddd;border-radius:8px;padding:10px;margin-bottom:10px;">
-          <b>${i+1}. ${item.data["student-name"] || "Unknown"}</b><br>
-          Father: ${item.data["father-name"] || ""}<br>
-          Mother: ${item.data["mother-name"] || ""}<br>
-          Class: ${item.data["class"] || ""}<br>
-          Phone: ${item.data["phone"] || ""}<br>
-          Email: ${item.data["email"] || ""}<br>
-          Date: ${item.created_at}
-        </div>
-      `).join("")}
-      <button id="closeFormsModal" style="margin-top:10px;padding:8px 12px;border:none;border-radius:8px;background:#ff5aa1;color:white;">Close</button>
-    </div>
-  `;
-  document.body.appendChild(container);
-  document.getElementById("closeFormsModal").addEventListener("click", ()=>{ container.remove(); });
+
+  try {
+    const res = await fetch("/.netlify/functions/get-forms");
+    const forms = await res.json();
+
+    let container = document.createElement("div");
+    container.style = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:2000;overflow:auto;";
+
+    container.innerHTML = `
+      <div style="background:white;padding:20px;border-radius:12px;max-width:600px;width:90%;max-height:80%;overflow:auto;">
+        <h2 style="margin-bottom:10px;">📋 Form Submissions</h2>
+        ${forms.map((form) => `
+          <h3 style="margin-top:15px;">Form: ${form.formId}</h3>
+          ${form.submissions.map((item,i)=>`
+            <div style="border:1px solid #ddd;border-radius:8px;padding:10px;margin-bottom:10px;">
+              <b>${i+1}. ${item.data["student-name"] || "Unknown"}</b><br>
+              Father: ${item.data["father-name"] || ""}<br>
+              Mother: ${item.data["mother-name"] || ""}<br>
+              Class: ${item.data["class"] || ""}<br>
+              Phone: ${item.data["phone"] || ""}<br>
+              Email: ${item.data["email"] || ""}<br>
+              Date: ${item.created_at}
+            </div>
+          `).join("")}
+        `).join("")}
+        <button id="closeFormsModal" style="margin-top:10px;padding:8px 12px;border:none;border-radius:8px;background:#ff5aa1;color:white;">Close</button>
+      </div>
+    `;
+
+    document.body.appendChild(container);
+
+    document.getElementById("closeFormsModal").addEventListener("click", ()=>{
+      container.remove();
+    });
+
+  } catch (err) {
+    alert("Error fetching forms: " + err.message);
+  }
 });
 </script>
 </body>
